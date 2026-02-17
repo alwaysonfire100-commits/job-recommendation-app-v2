@@ -15,15 +15,15 @@ if uploaded_file:
         resume_text = extract_text_from_pdf(uploaded_file)
 
     with st.spinner("Summarizing your resume..."):
-        summary = ask_openai(f"Summarize this resume highlighting the skills, edcucation, and experience: \n\n{resume_text}", max_tokens=500)
+        
 
     
     with st.spinner("Finding skill Gaps..."):
-        gaps = ask_openai(f"Analyze this resume and highlight missing skills, certifications, and experiences needed for better job opportunities: \n\n{resume_text}", max_tokens=400)
+        
 
 
     with st.spinner("Creating Future Roadmap..."):
-        roadmap = ask_openai(f"Based on this resume, suggest a future roadmap to improve this person's career prospects (Skill to learn, certification needed, industry exposure): \n\n{resume_text}", max_tokens=400)
+        
     
     # Display nicely formatted results
     st.markdown("---")
@@ -43,10 +43,7 @@ if uploaded_file:
 
     if st.button("🔎Get Job Recommendations"):
         with st.spinner("Fetching job recommendations..."):
-            keywords = ask_openai(
-                f"Based on this resume summary, suggest the best job titles and keywords for searching jobs. Give a comma-separated list only, no explanation.\n\nSummary: {summary}",
-                max_tokens=100
-            )
+            
 
             search_keywords_clean = keywords.replace("\n", "").strip()
 
