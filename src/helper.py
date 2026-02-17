@@ -1,28 +1,36 @@
-import fitz # PyMuPDF
-
-
-
-
-
-
-
+import fitz  # PyMuPDF
 
 
 def extract_text_from_pdf(uploaded_file):
     """
-    Extracts text from a PDF file.
-    
+    Extract text from uploaded PDF file (Streamlit file uploader).
+
     Args:
-        uploaded_file (str): The path to the PDF file.
-        
+        uploaded_file: Uploaded file object from Streamlit
+
     Returns:
-        str: The extracted text.
+        str: Extracted text from PDF
     """
-    doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+
+    if uploaded_file is None:
+        return ""
+
+    try:
+        # Open PDF from memory (no need to save file)
+        doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
+
+        text = ""
+
+        for page in doc:
+            text += page.get_text("text") + "\n"
+
+        doc.close()
+
+        return text.strip()
+
+    except Exception as e:
+        return f"Error reading PDF: {str(e)}"
+
 
 
 
