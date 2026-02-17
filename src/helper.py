@@ -7,7 +7,9 @@ from openai import OpenAI
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+
+if not OPENAI_API_KEY:
+    print("Warning OPENAI_API_KEY not found")
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -58,4 +60,5 @@ def ask_openai(prompt, max_tokens=500):
     )
 
     return response.choices[0].message.content
+
 
