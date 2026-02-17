@@ -2,8 +2,8 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from helper import extract_text_from_pdf
-from job_api import fetch_linkedin_jobs, fetch_naukri_jobs
+from src.helper import extract_text_from_pdf
+from src.job_api import fetch_linkedin_jobs, fetch_naukri_jobs
 
 # ---------------------------
 # Load Environment Variables
