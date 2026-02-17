@@ -4,15 +4,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 
-load_dotenv()
-
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-if not OPENAI_API_KEY:
-    print("Warning OPENAI_API_KEY not found")
 
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+
+
 
 
 def extract_text_from_pdf(uploaded_file):
@@ -33,7 +28,7 @@ def extract_text_from_pdf(uploaded_file):
 
 
 
-def ask_openai(prompt, max_tokens=500):
+def (prompt, max_tokens=500):
     """
     Sends a prompt to the OpenAI API and returns the response.
     
@@ -60,5 +55,6 @@ def ask_openai(prompt, max_tokens=500):
     )
 
     return response.choices[0].message.content
+
 
 
