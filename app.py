@@ -1,5 +1,5 @@
 import streamlit as st
-from src.helper import extract_text_from_pdf, 
+from src.helper import extract_text_from_pdf
 from src.job_api import fetch_linkedin_jobs, fetch_naukri_jobs
 
 st.set_page_config(page_title="Job Recommender", layout="wide")
